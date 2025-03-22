@@ -1,0 +1,191 @@
+/* 🔧 Grundlegendes Layout & Reset */
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    overflow: hidden;
+  }
+  
+  /* 🧭 Header & Navigation */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    transition: 0.3s;
+  }
+  
+  nav a:hover {
+    color: #4CAF50;
+  }
+  
+  /* 🔄 Logo im Header */
+  .header-logo {
+    height: 125px; /* ca. 3.5 cm */
+    margin-right: 20px;
+    transition: transform 0.4s ease, height 0.4s ease;
+    cursor: pointer;
+    animation: colorChange 5s infinite;
+  }
+  
+  .header-logo.logo-expanded {
+    transform: scale(1.3);
+  }
+  
+  /* 🛒 Warenkorb-Icon */
+  .cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  #cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #4CAF50;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 📄 Hauptbereich */
+  main {
+    padding: 20px;
+    text-align: center;
+    height: calc(100vh - 80px);
+    overflow: auto;
+  }
+  
+  .main-image {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  /* 🍓 Smoothie-Karten */
+  .smoothie {
+    display: inline-block;
+    width: 220px;
+    margin: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .smoothie-image {
+    width: 200px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .smoothie-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* 📦 Größen-Auswahl */
+  .size-options {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .size-options.visible {
+    opacity: 1;
+    height: auto;
+    margin-top: 10px;
+    transform: translateY(0);
+  }
+  
+  /* 🔘 Buttons */
+  button {
+    padding: 8px 15px;
+    margin: 3px;
+    border: none;
+    background: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #388E3C;
+  }
+  
+  /* 🧺 Warenkorb-Seitenleiste */
+  #cart-sidebar {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow: auto;
+    transition: 0.3s;
+  }
+  
+  #cart-sidebar.open {
+    right: 0;
+  }
+  
+  /* 🌈 Animierte Überschrift (z. B. "BerryBoost" auf Startseite) */
+  .color-change {
+    font-weight: bold;
+    background: linear-gradient(270deg, #ff5f6d, #ffc371, #4caf50, #00c9ff, #ff5f6d);
+    background-size: 1000% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease infinite;
+  }
+  
+  /* 🎞️ Animationen */
+  @keyframes colorChange {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
