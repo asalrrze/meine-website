@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>BerryBoost</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>BerryBoost</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
 <header>
-    <div class="header-content">
-        <img src="logo.png" alt="BerryBoost Logo" class="header-logo" onclick="toggleLogoSize()">
-        <nav>
-            <a href="#" onclick="showPage('home')">Startseite</a>
-            <a href="#" onclick="showPage('smoothies')">Smoothies</a>
-            <a href="#" onclick="showPage('about')">Über uns</a>
-            <a href="#" onclick="showPage('contact')">Kontakt</a>
-        </nav>
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒<span id="cart-count">0</span>
-        </div>
+  <div class="header-content">
+    <img src="logo.png" alt="BerryBoost Logo" class="header-logo" onclick="toggleLogoSize()">
+    <nav>
+      <a href="#" onclick="showPage('home')">Startseite</a>
+      <a href="#" onclick="showPage('smoothies')">Smoothies</a>
+      <a href="#" onclick="showPage('about')">Über uns</a>
+      <a href="#" onclick="showPage('contact')">Kontakt</a>
+    </nav>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒<span id="cart-count">0</span>
     </div>
+  </div>
 </header>
 
 <main id="content"></main>
 
 <div id="cart-sidebar">
-    <h3>Warenkorb</h3>
-    <div id="cart-items">Dein Warenkorb ist leer.</div>
-    <div id="cart-total">Gesamt: 0,00€</div>
-    <button onclick="applyDiscount()">Rabattcode eingeben 🎟️</button>
-    <button onclick="toggleCart()">Schließen ✖️</button>
+  <h3>Warenkorb</h3>
+  <div id="cart-items">Dein Warenkorb ist leer.</div>
+  <div id="cart-total">Gesamt: 0,00€</div>
+  <button onclick="applyDiscount()">Rabattcode eingeben 🎟️</button>
+  <button onclick="toggleCart()">Schließen ✖️</button>
 </div>
+
+<footer class="site-footer">
+  <p><strong>BerryBoost GmbH</strong> 🍓 – Dein Smoothie-Glück auf Bestellung!</p>
+  <p>Adresse: Fruchtallee 88, 12345 Smoothietown</p>
+  <p>
+    📞 <a href="tel:01234567890">0123 / 4567890</a> |
+    📧 <a href="mailto:info@berryboost.de">info@berryboost.de</a>
+  </p>
+  <p>Folge uns auf:
+    <a href="#">Instagram</a> •
+    <a href="#">TikTok</a> •
+    <a href="#">Facebook</a>
+  </p>
+  <p style="font-size: 0.8rem; margin-top: 10px;">© 2025 BerryBoost GmbH – Alle Rechte vorbehalten.</p>
+</footer>
 
 <script src="script.js"></script>
 <script>
 function toggleLogoSize() {
-    const logo = document.querySelector('.header-logo');
-    logo.classList.toggle('logo-expanded');
+  const logo = document.querySelector('.header-logo');
+  logo.classList.toggle('logo-expanded');
 }
 </script>
 
