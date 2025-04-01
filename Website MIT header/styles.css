@@ -1,0 +1,258 @@
+/* ✨ Reset & Layout */
+* { box-sizing: border-box; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fff7f9, #f0fff3);
+  color: #333;
+}
+main {
+  flex: 1;
+  padding: 30px 20px;
+  text-align: center;
+  overflow: auto;
+}
+
+/* 🔥 Header + Nav mit Hover-Highlight */
+header {
+  padding: 20px 40px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background: #ff4b6e; /* Farbe des Footers */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+nav a:hover {
+  color: #ff4b6e;
+}
+
+/* 🖼️ Logo */
+.header-logo {
+  height: 100px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.header-logo.logo-expanded {
+  transform: scale(1.2);
+}
+
+/* 🛒 Cart */
+.cart-icon {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+}
+#cart-count {
+  background: #ff4b6e;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🎨 Smoothie Cards */
+.smoothie {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 15px;
+  margin: 15px;
+  display: inline-block;
+  width: 240px;
+  transition: transform 0.2s;
+  animation: floatUp 0.6s ease-in;
+}
+.smoothie:hover {
+  transform: scale(1.03);
+}
+@keyframes floatUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.smoothie-image {
+  width: 200px;
+  height: 150px;
+  margin: auto;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px #eee;
+  background: #fafafa;
+  cursor: pointer;
+}
+.smoothie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 📦 Größen-Auswahl */
+.size-options {
+  opacity: 0;
+  max-height: 0;
+  transform: scaleY(0.9);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.size-options.visible {
+  opacity: 1;
+  max-height: 160px;
+  transform: scaleY(1);
+  margin-top: 10px;
+}
+
+/* 🔘 Buttons */
+button {
+  background: #ff4b6e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 5px 2px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #e13c5b;
+}
+
+/* 🛍️ Warenkorb */
+#cart-sidebar {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -3px 0 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: right 0.3s;
+  overflow-y: auto;
+  z-index: 999;
+}
+#cart-sidebar.open {
+  right: 0;
+}
+
+/* 🎞️ Slideshow */
+.slideshow {
+  width: 80%;
+  max-width: 600px;
+  height: 350px;
+  margin: 30px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slideshow-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease;
+  border-radius: 12px;
+}
+.slideshow-image.active {
+  opacity: 1;
+}
+
+/* 🌈 Text-Effekt */
+.color-change {
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff4b6e, #ffc371, #00c9ff, #ff4b6e);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🦶 Footer */
+.site-footer {
+  background-color: #ff4b6e;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+.site-footer a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.site-footer a:hover {
+  text-decoration: none;
+}
+/* 🖼️ Logo mit Hover-Animation */
+.header-logo {
+  height: 100px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.header-logo:hover {
+  transform: scale(1.2);
+}
+/* 💓 Pulsierender Smoothieman */
+.smoothieman {
+  width: 200px;
+  margin-top: 30px;
+  animation: pulse 2.5s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
