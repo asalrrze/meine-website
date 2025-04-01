@@ -1,8 +1,5 @@
-/* 🌸 Reset & Layout */
-* {
-  box-sizing: border-box;
-}
-
+/* ✨ Reset & Layout */
+* { box-sizing: border-box; }
 body {
   display: flex;
   flex-direction: column;
@@ -12,7 +9,6 @@ body {
   background: linear-gradient(to bottom, #fff7f9, #f0fff3);
   color: #333;
 }
-
 main {
   flex: 1;
   padding: 30px 20px;
@@ -20,7 +16,7 @@ main {
   overflow: auto;
 }
 
-/* 🧭 Header */
+/* 🔥 Header + Nav mit Hover-Highlight */
 header {
   padding: 20px 40px;
   background: white;
@@ -29,21 +25,33 @@ header {
   top: 0;
   z-index: 1000;
 }
-
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 nav a {
+  position: relative;
   margin: 0 15px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s;
 }
-
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background: #ff4b6e; /* Farbe des Footers */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
 nav a:hover {
   color: #ff4b6e;
 }
@@ -54,7 +62,6 @@ nav a:hover {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
-
 .header-logo.logo-expanded {
   transform: scale(1.2);
 }
@@ -65,7 +72,6 @@ nav a:hover {
   cursor: pointer;
   position: relative;
 }
-
 #cart-count {
   background: #ff4b6e;
   color: white;
@@ -81,7 +87,7 @@ nav a:hover {
   justify-content: center;
 }
 
-/* 🍓 Produktbereich */
+/* 🎨 Smoothie Cards */
 .smoothie {
   background: white;
   border-radius: 16px;
@@ -91,12 +97,15 @@ nav a:hover {
   display: inline-block;
   width: 240px;
   transition: transform 0.2s;
+  animation: floatUp 0.6s ease-in;
 }
-
 .smoothie:hover {
   transform: scale(1.03);
 }
-
+@keyframes floatUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 .smoothie-image {
   width: 200px;
   height: 150px;
@@ -108,7 +117,6 @@ nav a:hover {
   background: #fafafa;
   cursor: pointer;
 }
-
 .smoothie-image img {
   width: 100%;
   height: 100%;
@@ -123,7 +131,6 @@ nav a:hover {
   transition: all 0.4s ease;
   overflow: hidden;
 }
-
 .size-options.visible {
   opacity: 1;
   max-height: 160px;
@@ -143,7 +150,6 @@ button {
   font-weight: bold;
   transition: background 0.3s ease;
 }
-
 button:hover {
   background: #e13c5b;
 }
@@ -162,12 +168,11 @@ button:hover {
   overflow-y: auto;
   z-index: 999;
 }
-
 #cart-sidebar.open {
   right: 0;
 }
 
-/* 🎞️ Slideshow – mit Fix */
+/* 🎞️ Slideshow */
 .slideshow {
   width: 80%;
   max-width: 600px;
@@ -183,7 +188,6 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
-
 .slideshow-image {
   max-width: 90%;
   max-height: 90%;
@@ -193,12 +197,11 @@ button:hover {
   transition: opacity 1s ease;
   border-radius: 12px;
 }
-
 .slideshow-image.active {
   opacity: 1;
 }
 
-/* 🌈 Animierter Text */
+/* 🌈 Text-Effekt */
 .color-change {
   font-weight: bold;
   background: linear-gradient(270deg, #ff4b6e, #ffc371, #00c9ff, #ff4b6e);
@@ -207,7 +210,6 @@ button:hover {
   -webkit-text-fill-color: transparent;
   animation: gradientShift 8s ease infinite;
 }
-
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -225,12 +227,32 @@ button:hover {
   border-top-right-radius: 30px;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
-
 .site-footer a {
   color: #ffffff;
   text-decoration: underline;
 }
-
 .site-footer a:hover {
   text-decoration: none;
+}
+/* 🖼️ Logo mit Hover-Animation */
+.header-logo {
+  height: 100px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.header-logo:hover {
+  transform: scale(1.2);
+}
+/* 💓 Pulsierender Smoothieman */
+.smoothieman {
+  width: 200px;
+  margin-top: 30px;
+  animation: pulse 2.5s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
